@@ -19,5 +19,7 @@ for reproducing the Domain adaptation results, one has to run the da_digits.py f
 
 # Citation 
 
+if you use this code for your research, please cite our work
+
 
 
