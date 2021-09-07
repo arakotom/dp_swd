@@ -24,4 +24,19 @@ for reproducing the Domain adaptation results, one has to run the da_digits.py f
 if you use this code for your research, please cite our work
 
 
+@InProceedings{pmlr-v139-rakotomamonjy21a,
+  title = 	 {Differentially Private Sliced Wasserstein Distance},
+  author =       {Rakotomamonjy, Alain and Ralaivola, Liva},
+  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  pages = 	 {8810--8820},
+  year = 	 {2021},
+  editor = 	 {Meila, Marina and Zhang, Tong},
+  volume = 	 {139},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {18--24 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v139/rakotomamonjy21a/rakotomamonjy21a.pdf},
+  url = 	 {https://proceedings.mlr.press/v139/rakotomamonjy21a.html}
+}
+
 
