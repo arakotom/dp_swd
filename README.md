@@ -38,5 +38,3 @@ if you use this code for your research, please cite our work
   pdf = 	 {http://proceedings.mlr.press/v139/rakotomamonjy21a/rakotomamonjy21a.pdf},
   url = 	 {https://proceedings.mlr.press/v139/rakotomamonjy21a.html}
 }
-'''
-
