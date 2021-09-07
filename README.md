@@ -23,7 +23,7 @@ for reproducing the Domain adaptation results, one has to run the da_digits.py f
 
 if you use this code for your research, please cite our work
 
-
+```bibtex
 @InProceedings{pmlr-v139-rakotomamonjy21a,
   title = 	 {Differentially Private Sliced Wasserstein Distance},
   author =       {Rakotomamonjy, Alain and Ralaivola, Liva},
@@ -38,5 +38,5 @@ if you use this code for your research, please cite our work
   pdf = 	 {http://proceedings.mlr.press/v139/rakotomamonjy21a/rakotomamonjy21a.pdf},
   url = 	 {https://proceedings.mlr.press/v139/rakotomamonjy21a.html}
 }
-
+'''
 
