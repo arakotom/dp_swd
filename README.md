@@ -13,7 +13,7 @@ DP-SWD computation is in file distrib_distance.py
 ClassDANN and ClassSWD contains the DP-DANN and the DP-SWD train/inference algorithm
 da_settings.py and da_models are utility files that contain model and learning parameters.
 
-the file da_dp_analysis.py presents how we have computed the noise standard deviation given a desired accuracy. For this we use the autodp package https://github.com/yuxiangw/autodp
+the file da_dp_analysis.py presents how we have computed the noise standard deviation given a desired accuracy. For this, we use the autodp package https://github.com/yuxiangw/autodp
 
 # Results reproduction
 
