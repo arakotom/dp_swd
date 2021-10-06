@@ -36,7 +36,7 @@ def sliced_wasserstein_distance(first_samples,
     second_projections = (second_samples.matmul(projections.transpose(0, 1)))
     wasserstein_distance = torch.abs((torch.sort(first_projections.transpose(0, 1), dim=1)[0] -
                                       torch.sort(second_projections.transpose(0, 1), dim=1)[0]))
-    wasserstein_distance = torch.pow(torch.sum(torch.pow(wasserstein_distance, p), dim=1), 1. / p) # summing the sorted distance
+    wasserstein_distance = torch.pow(torch.mean(torch.pow(wasserstein_distance, p), dim=1), 1. / p) # averaging the sorted distance
     return torch.pow(torch.pow(wasserstein_distance, p).mean(), 1. / p)
 
 def sliced_wasserstein_distance_diff_priv(first_samples,
@@ -64,5 +64,5 @@ def sliced_wasserstein_distance_diff_priv(first_samples,
     second_projections = (second_samples.matmul(projections.transpose(0, 1))) + noise2 
     wasserstein_distance = torch.abs((torch.sort(first_projections.transpose(0, 1), dim=1)[0] -
                                       torch.sort(second_projections.transpose(0, 1), dim=1)[0]))
-    wasserstein_distance = torch.pow(torch.sum(torch.pow(wasserstein_distance, p), dim=1), 1. / p) # summing the sorted distance
+    wasserstein_distance = torch.pow(torch.mean(torch.pow(wasserstein_distance, p), dim=1), 1. / p) # averaging the sorted distance
     return torch.pow(torch.pow(wasserstein_distance, p).mean(), 1. / p)  # averaging over the random direction

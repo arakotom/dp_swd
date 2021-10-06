@@ -350,7 +350,7 @@ class SWD(object):
                                                         self.num_projection,2,
                                                         device,
                                                         sigma_noise=self.sigma_noise)
-                        wasserstein_distance = torch.mul(wasserstein_distance,maxi_norm)
+                        wasserstein_distance = torch.mul(wasserstein_distance,2*maxi_norm)
 
          
                     source_preds = self.data_classifier(source_features)                
