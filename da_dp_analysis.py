@@ -7,7 +7,7 @@ Created on Thu Jan 14 23:30:31 2021
 
 
 """
-
+#%%
 from autodp import rdp_acct, rdp_bank
 import numpy as np
 from scipy.stats import norm
@@ -19,7 +19,7 @@ from scipy.stats import norm
 
 
 #%%% Gradient Clipping DA
-setting = 0
+setting = 3
 
 if setting == 1:
     print("\n \t\t--- MNIST-USPS---\n")
@@ -88,10 +88,13 @@ if setting == 0:  # USPS-MNIST
     clt = False
     if clt:
         sigma_of_noise = 0.9 #the noise that you add'
+        sigma_of_noise = 0.915 # noise after correction of bug (used delta instead of delta2)
+
     else:
         # using bernstein ine
         sigma_of_noise = 4.74
-    
+        sigma_of_noise = 4.80 # noise after correction of bug (used delta instead of delta2)
+
 elif setting == 1: # MNIST - USPS
     d = (28*1)**2
     batch_size = 128
@@ -101,13 +104,16 @@ elif setting == 1: # MNIST - USPS
     num_projections = 200
     #sigma_of_noise = 0.65#the noise that you add
 
-    clt = True
+    clt = False
     if clt:
         sigma_of_noise = 1.02#the noise that you add'
+        sigma_of_noise = 1.035 # noise after correction of bug (used delta instead of delta2)
+
     else:
         # using bernstein one
-        sigma_of_noise = 5.34 #the noise that you add'
-    
+        sigma_of_noise = 5.34 # noise used in the paper
+        sigma_of_noise = 5.43 # noise after correction of bug (used delta instead of delta2)
+
 elif setting == 2: # VisDA
     d = 100
     delta = 1e-6
@@ -118,11 +124,14 @@ elif setting == 2: # VisDA
     num_projections = 1000
     #sigma_of_noise = 0.65#the noise that you add
 
-    clt = True
+    clt = False
     if clt:
         sigma_of_noise = 2.32#the noise that you add'
+        sigma_of_noise = 2.335 # noise after correction of bug (used delta instead of delta2)
+
     else:
         sigma_of_noise = 6.48 #the noise that you add'
+        sigma_of_noise = 6.52 # noise after correction of bug (used delta instead of delta2)
 
 elif setting == 3: # Office 31
     d =50
@@ -131,11 +140,15 @@ elif setting == 3: # Office 31
     N = 497  # Calibrating noise level on the worst case
     nb_epoch = 50   
     num_projections = 100
-    clt = False
+    clt = True
     if clt:
         sigma_of_noise = 3.245#the noise that you add'
+        sigma_of_noise = 3.372 # noise after correction of bug (used delta instead of delta2)
+
     else:
         sigma_of_noise = 8.05 #the noise that you add'
+        sigma_of_noise = 8.35 # noise after correction of bug (used delta instead of delta2)
+
 a = 1/2
 b = (d - 1)/2 
 delta2 = delta/2
@@ -163,7 +176,9 @@ k= nb_epoch*batch_per_epoch
 prob = batch_size/N
 acct = rdp_acct.anaRDPacct()
 acct.compose_subsampled_mechanism(func, prob, coeff=batch_per_epoch*nb_epoch)
-epsilon = acct.get_eps(delta)
+epsilon = acct.get_eps(delta2)
 print("DP-SWD : epsilon={:2.3f}, delta={:2.3e} sigma={:2.3f}".format(epsilon, delta,sigma_of_noise))
 
 
+
+# %%
